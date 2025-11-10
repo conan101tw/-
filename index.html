@@ -39,10 +39,25 @@
       width: 0%;
       transition: width 0.3s ease;
     }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #f44336;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #d32f2f;
+    }
   </style>
 </head>
 <body>
   <h1>列車防護發報主機時間校正</h1>
+
+  <button onclick="resetProgress()">重置進度</button>
 
   <ul class="task-list">
     <li><input type="checkbox" class="task"> EM535</li>
@@ -85,6 +100,15 @@
         localStorage.setItem('task-' + i, cb.checked);
       });
     }
+
+    function resetProgress() {
+      checkboxes.forEach((cb, i) => {
+        cb.checked = false;
+        localStorage.removeItem('task-' + i);
+      });
+      updateProgress();
+    }
+
 
     checkboxes.forEach(cb => cb.addEventListener('change', updateProgress));
   </script>
