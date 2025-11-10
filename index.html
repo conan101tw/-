@@ -9,6 +9,7 @@
       margin: 40px;
       background-color: #f9f9f9;
     }
+
     h1 {
       text-align: center;
       color: #333;
@@ -40,6 +41,53 @@
       transition: width 0.3s ease;
     }
 
+
+    .task-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    .task-list > li {
+      margin-bottom: 20px;
+    }
+    .task-list > li > strong {
+      font-size: 1.1em;
+      color: #333;
+    }
+    .task-list ul {
+      list-style: none;
+      padding-left: 20px;
+    }
+    .task-list ul li {
+      margin: 5px 0;
+    }
+
+
+    .task-section {
+      margin-bottom: 30px;
+    }
+    .task-section h3 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+    .task-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .task-row label {
+      background: #fff;
+      padding: 10px 15px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+    .task-row input[type="checkbox"] {
+      margin-right: 8px;
+    }
+
+
+
+
     button {
       margin-top: 20px;
       padding: 10px 20px;
@@ -52,6 +100,9 @@
     button:hover {
       background-color: #d32f2f;
     }
+
+
+
   </style>
 </head>
 <body>
@@ -59,78 +110,32 @@
 
   <button onclick="resetProgress()">重置進度</button>
 
-  <ul class="task-list">
-    <li>
-      <strong>柴聯車 DMU3100</strong>
-      <ul>
-        <li><input type="checkbox" class="task"> DR3101</li>
-        <li><input type="checkbox" class="task"> DR3102</li>
-        <li><input type="checkbox" class="task"> DR3103</li>
-        <li><input type="checkbox" class="task"> DR3104</li>
-        <li><input type="checkbox" class="task"> DR3105</li>
-        <li><input type="checkbox" class="task"> DR3106</li>
-        <li><input type="checkbox" class="task"> DR3107</li>
-        <li><input type="checkbox" class="task"> DR3108</li>
-        <li><input type="checkbox" class="task"> DR3109</li>
-        <li><input type="checkbox" class="task"> DR3110</li>
-        <li><input type="checkbox" class="task"> DR3111</li>
-        <li><input type="checkbox" class="task"> DR3112</li>
-        <li><input type="checkbox" class="task"> DR3113</li>
-        <li><input type="checkbox" class="task"> DR3114</li>
-        <li><input type="checkbox" class="task"> DR3115</li>
-        <li><input type="checkbox" class="task"> DR3116</li>
-        <li><input type="checkbox" class="task"> DR3117</li>
-        <li><input type="checkbox" class="task"> DR3118</li>
-        <li><input type="checkbox" class="task"> DR3119</li>
-        <li><input type="checkbox" class="task"> DR3120</li>
-      </ul>  
-    </li>
-    <li>
-      <strong>柴電機車 R</strong>
-      <ul>
-        <li><input type="checkbox" class="task"> R165</li>
-      </ul>
-    </li>
-    <li>
-      <strong>普悠瑪號 TEMU2000</strong>
-      <ul>
-        <li><input type="checkbox" class="task"> TED2017</li>
-      </ul>
-    </li>
-    <li>
-      <strong>電聯車 EMU500</strong>
-      <ul>
-        <li><input type="checkbox" class="task"> EM535</li>
-        <li><input type="checkbox" class="task"> EMC535</li>
-      </ul>
-    </li>
-    <li>
-      <strong>電聯車 EMU3000</strong>
-      <ul>
-        <li><input type="checkbox" class="task"> ED3131</li>
-        <li><input type="checkbox" class="task"> ED3132</li>
-      </ul>
-    </li>
-    <li>
-      <strong>柴電機車 R200</strong>
-      <ul>
-        <li><input type="checkbox" class="task"> R201-1</li>
-        <li><input type="checkbox" class="task"> R201-2</li>
-      </ul>
-    </li>
-    <li>
-      <strong>測試</strong>
-      <ul>
-        <li><input type="checkbox" class="task"> 測試</li>
-      </ul>
-    </li>
-    <li>
-      <strong>測試</strong>
-      <ul>
-        <li><input type="checkbox" class="task"> 測試</li>
-      </ul>
-    </li>
-  </ul>
+<div class="task-section">
+  <h3>網站設計</h3>
+  <div class="task-row">
+    <label><input type="checkbox" class="task"> 完成首頁設計</label>
+    <label><input type="checkbox" class="task"> 設計行動版版型</label>
+    <label><input type="checkbox" class="task"> 製作 Logo 與配色</label>
+  </div>
+</div>
+
+<div class="task-section">
+  <h3>後端開發</h3>
+  <div class="task-row">
+    <label><input type="checkbox" class="task"> 撰寫 API 文件</label>
+    <label><input type="checkbox" class="task"> 建立資料庫結構</label>
+    <label><input type="checkbox" class="task"> 設定伺服器環境</label>
+  </div>
+</div>
+
+<div class="task-section">
+  <h3>測試與部署</h3>
+  <div class="task-row">
+    <label><input type="checkbox" class="task"> 測試功能模組</label>
+    <label><input type="checkbox" class="task"> 修正錯誤回報</label>
+    <label><input type="checkbox" class="task"> 部署到伺服器</label>
+  </div>
+</div>
 
   <div class="progress-container">
     <p>目前進度：</p>
