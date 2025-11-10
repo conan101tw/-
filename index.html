@@ -64,12 +64,26 @@
     const progressFill = document.getElementById('progress');
     const progressText = document.getElementById('progress-text');
 
+    // 載入儲存的狀態
+    window.onload = () => {
+      checkboxes.forEach((cb, i) => {
+        const saved = localStorage.getItem('task-' + i);
+        cb.checked = saved === 'true';
+      });
+      updateProgress();
+    };
+
     function updateProgress() {
       const total = checkboxes.length;
       const completed = Array.from(checkboxes).filter(cb => cb.checked).length;
       const percent = Math.round((completed / total) * 100);
       progressFill.style.width = percent + '%';
       progressText.textContent = percent + '%';
+
+      // 儲存狀態
+      checkboxes.forEach((cb, i) => {
+        localStorage.setItem('task-' + i, cb.checked);
+      });
     }
 
     checkboxes.forEach(cb => cb.addEventListener('change', updateProgress));
