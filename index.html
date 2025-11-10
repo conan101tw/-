@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>工作進度追蹤</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .task-list {
+      list-style: none;
+      padding: 0;
+    }
+    .task-list li {
+      margin: 10px 0;
+      padding: 10px;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    .progress-container {
+      margin-top: 30px;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #ddd;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 20px;
+      background-color: #4caf50;
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+  <h1>工作進度追蹤</h1>
+
+  <ul class="task-list">
+    <li><input type="checkbox" class="task"> 完成首頁設計</li>
+    <li><input type="checkbox" class="task"> 撰寫 API 文件</li>
+    <li><input type="checkbox" class="task"> 測試功能模組</li>
+    <li><input type="checkbox" class="task"> 部署到伺服器</li>
+  </ul>
+
+  <div class="progress-container">
+    <p>目前進度：</p>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progress"></div>
+    </div>
+    <p id="progress-text">0%</p>
+  </div>
+
+  <script>
+    const checkboxes = document.querySelectorAll('.task');
+    const progressFill = document.getElementById('progress');
+    const progressText = document.getElementById('progress-text');
+
+    function updateProgress() {
+      const total = checkboxes.length;
+      const completed = Array.from(checkboxes).filter(cb => cb.checked).length;
+      const percent = Math.round((completed / total) * 100);
+      progressFill.style.width = percent + '%';
+      progressText.textContent = percent + '%';
+    }
+
+    checkboxes.forEach(cb => cb.addEventListener('change', updateProgress));
+  </script>
+</body>
+</html>
